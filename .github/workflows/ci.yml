@@ -1,0 +1,19 @@
+name: CI - Churn API
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupère le code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t churn-api .
+
+      - name: Test le conteneur
+        run: docker run churn-api python -c "from api import app; print('API OK')"
