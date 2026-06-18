@@ -8,3 +8,5 @@ seaborn
 streamlit
 joblib
 plotly
+fastapi
+uvicorn
